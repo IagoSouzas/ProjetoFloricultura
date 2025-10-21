@@ -1,0 +1,16 @@
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 50rem;
+    flex-direction: row;
+}
+
+.hero-tagline {
+    color: #000;
+    font-family: 'Italiana', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    line-height: normal;
+}
+

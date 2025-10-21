@@ -1,0 +1,140 @@
+<section class="popular-choices" id="carrosel">
+    <h2 class="section-title">ESCOLHAS POPULARES</h2>
+    <div class="carousel-container-full">
+        <button class="carousel-nav-button prev" #prevButton (click)="go(-1)">❮</button>
+
+        <div class="carousel-track-viewport">
+            <div class="carousel-track-flowers" #carouselTrack>
+                <div *ngFor="let card of cardsWithClones; let i = index"
+                     class="flower-card"
+                     [class.active]="i === centerIndex"> <img [src]="card.src" [alt]="card.alt">
+                    <p class="name">{{ card.name }}</p>
+                    <p class="price">{{ card.price }}</p>
+                </div>
+
+            </div>
+        </div>
+
+        <button class="carousel-nav-button next" #nextButton (click)="go(1)">❯</button>
+    </div>
+</section>
+
+<section class="kits" id="kits">
+    <div class="wrap">
+        <header class="kits-head">
+            <h2>KITS</h2>
+        </header>
+
+        <div class="grid">
+            <article class="kit-card">
+                <img src="https://cdn.myfonts.net/cdn-cgi/image/width=417,height=208,fit=contain,format=auto/images/pim/10000/Z9eeoCtqhlMuW4POK7d1fjgz_7e44394d1bb170ee0b719a6655cce87b.png"
+                    alt="Birthday Flowers Collection">
+                <h3>Birthday Flowers Collection</h3>
+                <p>Birthday Flowers for a memorable birthday gift.</p>
+
+                <div class="button-wrapper">
+                    <a href="#" class="pill">Shop now</a>
+                </div>
+            </article>
+
+            <article class="kit-card">
+                <img src="https://luxepetalsgp.ca/cdn/shop/files/pexels-darina-belonogova-7886431-copy.webp?v=1719858216&width=533"
+                    alt="Flowers by Subscription">
+                <h3>Flowers by Subscription</h3>
+                <p>Start a subscription to receive fresh florals each month!</p>
+                <div class="button-wrapper">
+                    <a href="#" class="pill">Shop now</a>
+                </div>
+            </article>
+
+            <article class="kit-card">
+                <img src="https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/8103728/74302_837112.png"
+                    alt="Gifts Collection">
+                <h3>Gifts Collection</h3>
+                <p>The perfect gift for the beloved ones.</p>
+                <div class="button-wrapper">
+                    <a href="#" class="pill">Shop now</a>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-top-services">
+        <div class="service-item">
+            <img class="icon truck-icon"
+                src="https://png.pngtree.com/png-clipart/20250821/original/pngtree-fast-delivery-truck-icon-isolated-on-transparent-background-png-image_22175747.png"
+                alt="Entrega">
+            <div class="service-text-content">
+                <h4>FRETE GRÁTIS</h4>
+                <p>Em produtos selecionados</p>
+                <p class="rule">Confira as regras</p>
+            </div>
+        </div>
+        <div class="service-item">
+            <img class="icon clock-icon"
+                src="https://png.pngtree.com/png-clipart/20230805/original/pngtree-clock-flat-eco-green-color-icon-eco-green-icon-fast-pictogram-vector-picture-image_9756595.png"
+                alt="Relógio">
+            <div class="service-text-content">
+                <h4>ENTREGA EXPRESSA</h4>
+                <p>Em menos de 20 minutos</p>
+                <p class="rule">Confira as regras</p>
+            </div>
+        </div>
+        <div class="service-item">
+            <img class="icon card-icon" src="https://img.icons8.com/ios7/512w/40C057/credit-card-front.png"
+                alt="Cartão">
+            <div class="service-text-content">
+                <h4>EM ATÉ 3 VEZES SEM JUROS</h4>
+                <p>No cartão de crédito</p>
+                <p class="rule">Confira as regras</p>
+            </div>
+        </div>
+        <hr class="separator">
+    </div>
+
+    <div class="footer-middle-content">
+        <div class="footer-column institutional">
+            <h4>Institucional</h4>
+            <a href="#">Blog (Sobre a Hanami)</a>
+            <a href="#">Política de privacidade</a>
+            <a href="#">Regulamentos</a>
+            <a href="#">Trabalhe conosco</a>
+        </div>
+
+        <div class="footer-column contacts">
+            <h4>Contatos</h4>
+            <div class="contact-line">
+                <img src="https://images.freeimages.com/fic/images/icons/2779/simple_icons/4096/whatsapp_4096_black.png"
+                    alt="Whatsapp">
+                <span class="contact-info">(11) 98563-7458</span>
+            </div>
+            <div class="contact-line">
+                <img src="https://revistadoscondominios.com.br/wp-content/uploads/2022/09/telefone_preto.png"
+                    alt="Telefone">
+                <span class="contact-info">(11) 59285355</span>
+            </div>
+        </div>
+
+        <div class="footer-column social-media">
+            <h4>Redes Sociais</h4>
+            <div class="social-icons">
+                <a href="#" class="social-icon tiktok"></a>
+                <a href="#" class="social-icon facebook"></a>
+                <a href="#" class="social-icon instagram"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom-payment">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhP1FUU4THhWbPkaGJBdRlJsn4PYfR19cH9w&s"
+            alt="Elo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Hipercard_logo.svg/2000px-Hipercard_logo.svg.png"
+            alt="Hipercard">
+        <img src="https://blog.br.tkelevator.com/wp-content/uploads/2023/04/boleto-logo.png" alt="Boleto">
+        <img src="https://br.ebury.com/wp-content/uploads/2020/11/pix-foto-site-1.png" alt="Pix">
+        <img src="https://static.wixstatic.com/media/cf03c7_d8943e37bb9f423eaac7fc5864c23e07~mv2.png/v1/fill/w_1000,h_667,al_c,q_90,usm_0.66_1.00_0.01/cf03c7_d8943e37bb9f423eaac7fc5864c23e07~mv2.png"
+            alt="MasterCard">
+    </div>
+</footer>

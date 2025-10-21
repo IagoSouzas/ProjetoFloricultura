@@ -1,0 +1,350 @@
+footer {
+    background-color: #e7e7e7;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color: #4f5f4a;
+    padding: 0 0 30px;
+}
+
+h4 {
+    color: #4f5f4a;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.footer-top-services {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    position: relative;
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+}
+
+.service-item .icon {
+    width: 35px;
+    margin-right: 15px;
+}
+
+.service-text-content {
+    text-align: left;
+    margin-left: 15px;
+}
+
+.service-item h4 {
+    margin: 0 0 5px;
+    font-size: 1.1rem;
+    color: #618e6e;
+}
+
+.service-item p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #8c9c86;
+}
+
+.service-item .rule {
+    font-weight: bold;
+    color: #618e6e;
+}
+
+.separator {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    border: none;
+    border-top: 1px solid #618e6e;
+}
+
+.service-item .icon {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+}
+
+.popular-choices {
+    text-align: center;
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-title {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: clamp(22px, 3vw, 36px);
+    margin-bottom: 50px;
+}
+
+.carousel-container-full {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.carousel-track-viewport {
+    overflow-x: hidden;
+    overflow-y: visible;
+    width: 100%;
+}
+
+.carousel-track-flowers {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+    align-items: flex-end;
+    padding-top: 40px;
+}
+
+.flower-card {
+    flex-shrink: 0;
+    width: 20%;
+    padding: 0 10px;
+    text-align: center;
+    transition: transform 0.4s ease-in-out;
+    cursor: pointer;
+    transform-origin: center bottom;
+    padding-bottom: 20px;
+}
+
+.flower-card img {
+    width: 90%;
+    height: auto;
+    object-fit: contain;
+    transition: transform .4s ease;
+}
+
+.flower-card .name {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-bottom: 4px;
+}
+
+.flower-card .price {
+    font-size: 0.95rem;
+    color: #444;
+}
+
+.flower-card.active {
+    transform: scale(1.18);
+    z-index: 10;
+}
+
+.carousel-nav-button {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #333;
+    cursor: pointer;
+    padding: 0 15px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+}
+
+.carousel-nav-button.prev {
+    left: 0;
+}
+
+.carousel-nav-button.next {
+    right: 0;
+}
+
+.footer-middle-content {
+    max-width: 1200px;
+    margin: 30px auto 40px;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    text-align: left;
+}
+
+.footer-middle-content h4 {
+    color: #618e6e;
+}
+
+.footer-column a,
+.footer-column span {
+    display: block;
+    margin-bottom: 8px;
+    text-decoration: none;
+    color: #0a0a0a;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+}
+
+.contacts {
+    text-align: center;
+}
+
+.contact-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.contacts img {
+    height: 30px;
+    width: auto;
+    margin-right: 8px;
+}
+
+.contacts .contact-info {
+    display: inline;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.social-media {
+    text-align: right;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icon {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+}
+
+.social-icon.tiktok {
+    background-image: url('https://images.icon-icons.com/2972/PNG/512/tiktok_logo_icon_186896.png');
+}
+
+.social-icon.facebook {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg');
+}
+
+.social-icon.instagram {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png');
+}
+
+.footer-bottom-payment {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.footer-bottom-payment img {
+    height: 75px;
+    width: auto;
+}
+
+.kits{ 
+  background: #fff;   
+  padding: 64px 0;  
+}
+
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.kits-head{ 
+    text-align:center; 
+    margin-bottom:64px; 
+}
+
+.kits-head h2{
+  font-family:'Times New Roman', Times, serif;
+  font-size:clamp(22px, 2.4vw, 34px);
+  letter-spacing:.04em;
+  font-weight: 400;
+}
+
+.kits .grid{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display:grid;
+  gap:20px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width:800px){
+  .kits .grid{ grid-template-columns: repeat(3, 1fr); }
+}
+
+.kit-card {
+  border: 1px solid #eee;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  transition: 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.kit-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.kit-card h3 {
+  margin: 12px 12px 4px;
+  font-size: 2rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 500;
+}
+
+.kit-card p {
+  margin: 0 12px 12px;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.button-wrapper {
+  margin-top: auto;
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-bottom: 16px;
+}
+
+.pill {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid #000;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  transition: 0.2s;
+  margin: 0;
+}
+
+.pill:hover {
+  background: #000;
+  color: #fff;
+}

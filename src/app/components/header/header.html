@@ -1,0 +1,28 @@
+<div>
+    <header class="container_header">
+        <div></div>
+        <div class="sapo">
+            <div class="logo">
+                <img [src]="imagemLogo" alt="Logo da empresa">
+                <h1 class="Nome">HANAMI</h1>
+            </div>
+        </div>
+        <div class="conta" (click)="toggleMenu()">
+            <img class="perfil" [src]="imagemIcon" alt="icone">
+        </div>
+        
+         <div class="dropdown-menu" *ngIf="isMenuOpen">
+            <a [routerLink]="['/login']" class="menu-item">Entrar como Cliente</a>
+            <a [routerLink]="['/login']" class="menu-item">Entrar como Admin</a>
+        </div>
+    </header>
+    <nav *ngIf="mostrarNavegacao">
+        <ul>
+            <li><a routerLink="">HOME</a></li>
+            <li><a href="#carrosel">FLORES</a></li>
+            <li><a href="#kits">ACESSÓRIOS</a></li>
+            <li><a routerLink="blog">BLOG</a></li>
+        </ul>
+    </nav>
+
+</div>

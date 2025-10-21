@@ -1,0 +1,42 @@
+.blog-title {
+    color: #000;
+    font-family: 'Italiana', serif;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.blog-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.blog-item {
+    display: flex;
+    text-decoration: none;
+    color: #333;
+    font-weight: 200;
+    font-family: 'Inter', sans-serif;
+    gap: 7rem;
+}
+
+.blog-content {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.blog-description {
+    width: 50%;
+    display: flex;
+    color: #000;
+    font-family: 'Inter', sans-serif;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    align-items: center;
+    text-align: end;
+}

@@ -1,0 +1,57 @@
+<form>
+    <div class="form-group">
+        <label for="nome_produto">Nome do Produto:</label>
+        <input type="text" id="nome_produto" name="nome_produto" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="categoria">Categoria:</label>
+        <input type="text" id="categoria" name="categoria" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="especie">Espécie:</label>
+        <input type="text" id="especie" name="especie" class="form-control">
+    </div>
+
+    <div class="form-group form-group-textarea">
+        <label for="descricao">Descrição:</label>
+        <textarea id="descricao" name="descricao" class="form-textarea"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="cor">Cor:</label>
+        <input type="text" id="cor" name="cor" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="condicoes_cultivo">Condições de Cultivo:</label>
+        <input type="text" id="condicoes_cultivo" name="condicoes_cultivo" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="qtd_estoque">Qtd. Estoque:</label>
+        <input type="number" id="qtd_estoque" name="qtd_estoque" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="preco">Preço:</label>
+        <input type="number" id="preco" name="preco" step="0.01" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="adicionar_imagem">Adicionar imagem:</label>
+        <input type="file" id="adicionar_imagem" name="adicionar_imagem" accept="image/*" class="form-control">
+    </div>
+
+    <div class="form-group form-group-textarea">
+        <label for="observacao">Observação:</label>
+        <textarea id="observacao" name="observacao" class="form-textarea"></textarea>
+    </div>
+
+    <button type="submit" (click)="onSubmit($event)" id='submitAdicionar'>
+        <p>
+            {{ isAlterarMode ? 'Salvar Alterações' : 'Adicionar Produto' }}
+        </p>
+    </button>
+</form>

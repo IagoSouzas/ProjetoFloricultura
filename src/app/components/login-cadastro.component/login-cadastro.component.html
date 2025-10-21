@@ -1,0 +1,27 @@
+<main>
+    <div class="cadastro-container">
+
+        <p id="cadastro-titulo">Meu Cadastro</p>
+        <div class="divisor"></div>
+        <form class="form-cadastro">
+            <p>*Nome completo: <br><input type="text" name="nome"></p>
+            <p>*CPF: <br><input type="text" name="cpf"></p>
+            <p>*E-mail: <br><input type="email" name="email"></p>
+            <p>*Senha: <br> <input type="password" name="senha"></p>
+        </form>
+
+        <p id="endereco-titulo">Meu Endereço</p>
+        <div class="divisor"></div>
+        <form class="form-endereco">
+            <p id="cep-input">*CEP: <a href="#">Não sei meu CEP</a> <br> <input type="text" name="cep"></p>
+            <p id="numero-input">*Número: <br><input type="number" name="numero"></p>
+            <p id="complemento-input">*Complemento: <br><input type="text" name="complemento"></p>
+        </form>
+
+        <button id="botao-finalizar" 
+                type="button" 
+                (click)="onFinalizarCadastro()">
+            Finalizar cadastro
+        </button>
+    </div>
+</main>
