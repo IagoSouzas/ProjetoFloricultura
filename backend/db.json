@@ -1,0 +1,16 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "nome_produto": "Rosa Vermelha",
+      "categoria": "Flores",
+      "especie": "Rosa",
+      "descricao": "Uma linda rosa aveludada.",
+      "cor": "Vermelha",
+      "condicoes_cultivo": "Sol pleno, rega diária",
+      "qtd_estoque": 50,
+      "preco": 29.90,
+      "observacao": ""
+    }
+  ]
+}

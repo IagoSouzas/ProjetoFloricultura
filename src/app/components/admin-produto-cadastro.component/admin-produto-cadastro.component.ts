@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-admin-produto-cadastro.component',
-  imports: [],
+  imports: [HttpClient],
   templateUrl: './admin-produto-cadastro.component.html',
   styleUrl: './admin-produto-cadastro.component.css'
 })
-export class AdminProdutoCadastroComponent {
+export class AdminProdutoCadastroComponent implements OnInit {
   public isAlterarMode: boolean = false;
 
   constructor(private route: ActivatedRoute) { }
