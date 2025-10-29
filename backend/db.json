@@ -1,7 +1,7 @@
 {
   "produtos": [
     {
-      "id": 1,
+      "id": "1",
       "nome_produto": "Rosa Vermelha",
       "categoria": "Flores",
       "especie": "Rosa",
@@ -9,7 +9,78 @@
       "cor": "Vermelha",
       "condicoes_cultivo": "Sol pleno, rega diária",
       "qtd_estoque": 50,
-      "preco": 29.90,
+      "preco": 29.9,
+      "observacao": ""
+    },
+    {
+      "id": "e1d3",
+      "nome_produto": "iago",
+      "categoria": "ssd",
+      "especie": "sadkj",
+      "descricao": "fghjllk",
+      "cor": "aslkdjald",
+      "condicoes_cultivo": "alksjd",
+      "qtd_estoque": 2,
+      "preco": 1230,
+      "observacao": "dffdfg"
+    },
+    {
+      "id": "fd4e",
+      "nome_produto": "iago",
+      "categoria": "asdkjl",
+      "especie": "",
+      "descricao": "",
+      "cor": "",
+      "condicoes_cultivo": "",
+      "qtd_estoque": 0,
+      "preco": 0,
+      "observacao": ""
+    },
+    {
+      "id": "f92e",
+      "nome_produto": "iago",
+      "categoria": "asdkjl",
+      "especie": "",
+      "descricao": "",
+      "cor": "",
+      "condicoes_cultivo": "",
+      "qtd_estoque": 0,
+      "preco": 0,
+      "observacao": ""
+    },
+    {
+      "id": "0c4e",
+      "nome_produto": "iago3",
+      "categoria": "asdkjl",
+      "especie": "",
+      "descricao": "",
+      "cor": "",
+      "condicoes_cultivo": "",
+      "qtd_estoque": 0,
+      "preco": 0,
+      "observacao": ""
+    },
+    {
+      "id": "946f",
+      "nome_produto": "iago34",
+      "categoria": "asdkjl",
+      "especie": "",
+      "descricao": "",
+      "cor": "",
+      "condicoes_cultivo": "",
+      "qtd_estoque": 0,
+      "preco": 0,
+      "observacao": ""
+    },{
+      "id": "5",
+      "nome_produto": "Rosa Vermelha",
+      "categoria": "Flores",
+      "especie": "Rosa",
+      "descricao": "Uma linda rosa aveludada.",
+      "cor": "Vermelha",
+      "condicoes_cultivo": "Sol pleno, rega diária",
+      "qtd_estoque": 50,
+      "preco": 29.9,
       "observacao": ""
     }
   ]

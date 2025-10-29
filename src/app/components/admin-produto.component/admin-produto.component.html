@@ -25,10 +25,10 @@
 
             <tbody>
                 <tr *ngFor="let item of items">
-                    <td class="item_td">{{ item.cod }}</td>
-                    <td class="item_td">{{ item.nome }}</td>
+                    <td class="item_td">{{ item.id }}</td>
+                    <td class="item_td">{{ item.nome_produto }}</td>
                     <td class="item_td">{{ item.categoria }}</td>
-                    <td class="item_td">{{ item.estoque }}</td>
+                    <td class="item_td">{{ item.qtd_estoque }}</td>
 
                     <td class="item_td" id="actionsCell">
                         <span class="edit_icon" (click)="editarProduto(item)">
@@ -52,9 +52,13 @@
     </div>
 
     <div class="container_nav-items">
-        <div class="nav-items" (click)="voltarPagina()">Anterior</div>
-        <div class="nav-items" id="page_identificator">{{ paginaAtual }}</div>
-        <div class="nav-items" (click)="proximaPagina()">Próximo</div>
+        <button class="nav-items" (click)="voltarPagina()" [disabled]="paginaAtual === 1">Anterior</button>
+
+        <div class="nav-items" id="page_identificator">Página {{ paginaAtual }}</div>
+
+        <button class="nav-items" (click)="proximaPagina()" [disabled]="paginaAtual >= getTotalPaginas()">
+            Próximo
+        </button>
     </div>
 
     <div class="new_product" (click)="adicionarNovoProduto()">
