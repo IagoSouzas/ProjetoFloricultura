@@ -13,10 +13,15 @@ interface Produto {
   qtd_estoque: number;
 }
 
+interface TermosBusca {
+  nome_produto?: string;
+  categoria?: string;
+}
+
 @Component({
   selector: 'app-admin-produto.component',
   // CORREÇÃO: Adicionado HttpClientModule para resolver o erro de provedor
-  imports: [CommonModule, FormsModule, HttpClientModule], 
+  imports: [CommonModule, FormsModule, HttpClientModule],
   templateUrl: './admin-produto.component.html',
   styleUrl: './admin-produto.component.css'
 })
@@ -58,13 +63,19 @@ export class AdminProdutoComponent implements OnInit {
             categoria: p.categoria,
             qtd_estoque: p.qtd_estoque
           }));
-          this.totalItens = result.totalItems; 
+          this.totalItens = result.totalItems;
         },
         error: (err) => {
           console.error('Erro ao carregar produtos:', err);
           alert('Não foi possível carregar os dados do servidor.');
         }
       });
+  }
+
+  public onBuscarSugestao(): void {
+    // Ao digitar, sempre voltamos para a primeira página para ver os resultados do filtro
+    this.paginaAtual = 1;
+    this.carregarProdutos();
   }
 
   public adicionarNovoProduto(): void {
@@ -75,30 +86,53 @@ export class AdminProdutoComponent implements OnInit {
     this.router.navigate(['admin/alterar-produto', item.id]);
   }
 
-  public deletarProduto(item: Produto): void {
-    alert('Deletar produto:' + item.id);
+  public deletarProduto(id: number | undefined): void {
+    if (!id) {
+      alert("Erro: ID do produto inválido ou não fornecido para exclusão.");
+      console.error("Tentativa de deletar produto com ID inválido/nulo.");
+      return;
+    }
+    if (!confirm(`Tem certeza que deseja deletar o produto com ID ${id}?`)) {
+      return;
+    }
+    this.produtoService.deletarProduto(id).subscribe({
+      next: () => {
+        alert(`Produto ID ${id} deletado com sucesso!`);
+
+        // Recarrega a lista de produtos
+        this.carregarProdutos();
+      },
+      error: (err) => {
+        console.error('Erro ao deletar produto:', err);
+        // Mensagem de erro mais amigável, talvez mostrando o status
+        const status = err.status ? ` (Status: ${err.status})` : '';
+        alert(`Erro ao deletar produto ID ${id}. Verifique o console. ${status}`);
+      }
+    });
   }
 
   public proximaPagina(): void {
-      // LÓGICA DE CONTROLE DE PÁGINA:
-      const totalPaginas = this.getTotalPaginas();
-      if (this.paginaAtual < totalPaginas) {
-        this.paginaAtual++;
-        this.carregarProdutos(); 
-      }
+    // LÓGICA DE CONTROLE DE PÁGINA:
+    const totalPaginas = this.getTotalPaginas();
+    if (this.paginaAtual < totalPaginas) {
+      this.paginaAtual++;
+      this.carregarProdutos();
+    }
   }
 
   public voltarPagina(): void {
     if (this.paginaAtual > 1) {
       this.paginaAtual--;
-      this.carregarProdutos(); 
+      this.carregarProdutos();
     }
   }
-    public getTotalPaginas(): number {
+  public getTotalPaginas(): number {
     return Math.ceil(this.totalItens / this.limitePorPagina);
   }
 
   public pesquisarProduto(): void {
-    alert("Procurar produto");
+    // O método "onBuscarSugestao" já faz a pesquisa em tempo real, 
+    // mas você pode chamar o carregarProdutos aqui se quiser um botão de busca dedicado
+    this.onBuscarSugestao();
   }
 }

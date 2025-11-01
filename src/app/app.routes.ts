@@ -11,7 +11,7 @@ export const routes: Routes = [
     { path: 'blog', component: Blog },
     { path: 'admin/consultar', component: AdminProdutoComponent },
     { path: 'admin/cadastrar-produto', component: AdminProdutoCadastroComponent },
-    { path: 'admin/alterar-produto', component: AdminProdutoCadastroComponent },
+    { path: 'admin/alterar-produto/:id', component: AdminProdutoCadastroComponent },
     { path: 'login', component: LoginComponent },
     { path: 'cadastro-login', component: LoginCadastroComponent },
 ];

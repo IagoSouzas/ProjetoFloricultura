@@ -44,17 +44,17 @@ export class AdminProdutoCadastroComponent implements OnInit {
   constructor(private route: ActivatedRoute, private produtoService: ProdutoService) { }
 
   ngOnInit(): void {
-    const lastSegment = this.route.snapshot.url.pop()?.path;
+    // 1. Tenta obter o ID do parâmetro 'id'
+    const idParam = this.route.snapshot.paramMap.get('id');
+    this.produtoId = idParam ? +idParam : undefined;
 
-    this.isAlterarMode = lastSegment === 'alterar-produto';
+    // 2. O MODO ALTERAÇÃO É DETERMINADO PELA EXISTÊNCIA DO ID
+    // Se produtoId for um número, estamos no modo de alteração
+    this.isAlterarMode = !!this.produtoId;
 
     if (this.isAlterarMode) {
-      const idParam = this.route.snapshot.paramMap.get('id');
-      this.produtoId = idParam ? +idParam : undefined;
-
-      if (this.produtoId) {
-        this.carregarProdutoParaEdicao(this.produtoId);
-      }
+      // Se o ID existir e for um número válido, carrega o produto
+      this.carregarProdutoParaEdicao(this.produtoId!);
     }
   }
 
