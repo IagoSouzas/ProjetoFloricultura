@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProdutoService } from '../../services/produto';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 interface Produto {
   id?: number;
@@ -41,24 +43,19 @@ export class AdminProdutoCadastroComponent implements OnInit {
     observacao: ''
   };
 
-  constructor(private route: ActivatedRoute, private produtoService: ProdutoService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private produtoService: ProdutoService) { }
 
   ngOnInit(): void {
-    // 1. Tenta obter o ID do parâmetro 'id'
     const idParam = this.route.snapshot.paramMap.get('id');
     this.produtoId = idParam ? +idParam : undefined;
 
-    // 2. O MODO ALTERAÇÃO É DETERMINADO PELA EXISTÊNCIA DO ID
-    // Se produtoId for um número, estamos no modo de alteração
     this.isAlterarMode = !!this.produtoId;
 
     if (this.isAlterarMode) {
-      // Se o ID existir e for um número válido, carrega o produto
       this.carregarProdutoParaEdicao(this.produtoId!);
     }
   }
 
-  // Método para carregar os dados do produto para preencher o formulário
   carregarProdutoParaEdicao(id: number): void {
     this.produtoService.getProdutoPorId(id).subscribe({
       next: (data) => {
@@ -79,11 +76,8 @@ export class AdminProdutoCadastroComponent implements OnInit {
       return;
     }
 
-    // **NOTA:** Para o json-server, a imagem (input type="file") não será enviada
-    // facilmente como parte do JSON. Apenas envie os campos de texto/número.
     const produtoPayload = { ...this.produto };
-    delete produtoPayload.id; // Garante que o ID não vá no POST
-    // delete produtoPayload.adicionar_imagem; // Se tivesse no modelo
+    delete produtoPayload.id; 
 
     if (this.isAlterarMode && this.produtoId) {
       // Modo Alterar (PUT)
@@ -91,6 +85,7 @@ export class AdminProdutoCadastroComponent implements OnInit {
         next: () => {
           alert("Produto alterado com sucesso!");
           // Aqui você redirecionaria para a lista de produtos
+          this.router.navigate(['admin/consultar']);
         },
         error: (error) => {
           console.error('Erro na alteração:', error);
@@ -103,7 +98,7 @@ export class AdminProdutoCadastroComponent implements OnInit {
       this.produtoService.cadastrarProduto(produtoPayload).subscribe({
         next: () => {
           alert("Produto cadastrado com sucesso!");
-          // Aqui você resetaria o formulário ou redirecionaria
+          this.router.navigate(['admin/consultar']);
         },
         error: (error) => {
           console.error('Erro no cadastro:', error);
