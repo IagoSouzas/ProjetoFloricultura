@@ -29,7 +29,7 @@ interface Produto {
 export class AdminProdutoCadastroComponent implements OnInit {
   public isAlterarMode: boolean = false;
 
-  private produtoId: number | undefined;
+  private produtoId: string | undefined;
 
   public produto: Produto = {
     nome_produto: '',
@@ -47,7 +47,9 @@ export class AdminProdutoCadastroComponent implements OnInit {
 
   ngOnInit(): void {
     const idParam = this.route.snapshot.paramMap.get('id');
-    this.produtoId = idParam ? +idParam : undefined;
+
+    // Mantenha como string
+    this.produtoId = idParam ? idParam : undefined;
 
     this.isAlterarMode = !!this.produtoId;
 
@@ -56,7 +58,7 @@ export class AdminProdutoCadastroComponent implements OnInit {
     }
   }
 
-  carregarProdutoParaEdicao(id: number): void {
+  carregarProdutoParaEdicao(id: string): void {
     this.produtoService.getProdutoPorId(id).subscribe({
       next: (data) => {
         this.produto = data; // Preenche o modelo do formulário com os dados da API
@@ -77,7 +79,7 @@ export class AdminProdutoCadastroComponent implements OnInit {
     }
 
     const produtoPayload = { ...this.produto };
-    delete produtoPayload.id; 
+    delete produtoPayload.id;
 
     if (this.isAlterarMode && this.produtoId) {
       // Modo Alterar (PUT)

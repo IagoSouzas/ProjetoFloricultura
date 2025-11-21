@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; 
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms'; 
 import { Router, RouterLink } from '@angular/router'; 
 
 @Component({
   selector: 'app-login', 
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink], 
+  imports: [CommonModule, FormsModule, RouterLink, ReactiveFormsModule], 
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'] 
 })
@@ -43,4 +43,17 @@ export class LoginComponent {
       this.loginError = 'E-mail/CPF ou senha incorretos.';
     }
   }
+
+  formulario = new FormGroup ({
+    username: new FormControl ('', [Validators.required, Validators.email, Validators.nullValidator]),
+    password: new FormControl ('', [Validators.required, Validators.nullValidator, Validators.minLength(8)]),
+
+  })
+
+  onSubmit(){
+    if (this.formulario.valid) {
+      alert('Formulário foi enviado com sucesso!')
+    }
+  }
+
 }

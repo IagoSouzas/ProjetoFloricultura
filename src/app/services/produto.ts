@@ -65,11 +65,11 @@ export class ProdutoService {
     return this.http.post<Produto>(this.apiUrl, produto);
   }
 
-  alterarProduto(id: number, produto: Produto): Observable<Produto> {
+  alterarProduto(id: string, produto: Produto): Observable<Produto> {
     return this.http.put<Produto>(`${this.apiUrl}/${id}`, produto);
   }
 
-  getProdutoPorId(id: number): Observable<Produto> {
+  getProdutoPorId(id: string): Observable<Produto> {
     return this.http.get<Produto>(`${this.apiUrl}/${id}`);
   }
 
