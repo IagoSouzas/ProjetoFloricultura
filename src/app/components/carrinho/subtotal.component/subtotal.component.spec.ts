@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NoItensComponent } from './no-itens.component';
+import { SubtotalComponent } from './subtotal.component';
 
-describe('NoItensComponent', () => {
-  let component: NoItensComponent;
-  let fixture: ComponentFixture<NoItensComponent>;
+describe('SubtotalComponent', () => {
+  let component: SubtotalComponent;
+  let fixture: ComponentFixture<SubtotalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NoItensComponent]
+      imports: [SubtotalComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NoItensComponent);
+    fixture = TestBed.createComponent(SubtotalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

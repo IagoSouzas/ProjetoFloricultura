@@ -1,1 +1,48 @@
-<p>footer.component works!</p>
+<footer>
+    <section class="informacoes_loja">
+        <div class="forma_pagamento">
+            <p>Formas de pagamentos:</p>
+
+            <img *ngFor="let imagem of imagens" [src]="imagem.url" [alt]="imagem.alt" class="minha-galeria-imagem">
+
+        </div>
+
+        <div class="endereco_hanami">
+            HANAMI FLORES E ARRANJOS LTDA, com sede na Av. das Flores, 123, Bairro dos Jardins, Holambra/SP, <br>CEP
+            13825-000, inscrita no CNPJ/MF sob o nº 12.345.678/0001-99.
+        </div>
+
+        <div class="descricao_empresa">
+            LOJA ONLINE HANAMI, operada pela FLORES BELAS COMÉRCIO DIGITAL LTDA,<br>
+            com endereço na Avenida Primavera, 500, Bloco A - Bairro Pinheiros, São Paulo - SP, CEP 05422-000,<br>
+            inscrita no CNPJ sob o nº 98.765.432/0001-11 e Inscrição Estadual 123.456.789.10.
+        </div>
+
+        <div class="reclame_aqui">
+            <p>Confira o Reclame Aqui para compras na Loja Online.</p>
+        </div>
+    </section>
+
+    <section class="popUp_atendente">
+        <div class="precisa_ajuda">
+
+            <p>Precisa de Ajuda?</p>
+            <p>0800 123 4567</p>
+            <p>Termos e Condições <br>
+                Central de Atendimento <br>
+                FAQ - Entregas e Pedidos</p>
+
+
+        </div>
+        <div>
+            <div class="container_imagem_atendente">
+                <img [src]="imageAtendente" alt="">
+            </div>
+            <div class="descricao_atendente">
+                Ajuda para comprar?<br>
+                Fale com nossa <br>
+                Florista Expert!🌸
+            </div>
+        </div>
+    </section>
+</footer>

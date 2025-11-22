@@ -1,0 +1,51 @@
+
+body{
+    margin: 0;
+}
+.container-cesta_vazia{
+    max-height: 58vh;
+}
+
+.cesta_frase p {
+    text-align: center;
+    font-family: Inter;
+    font-size: 1.4375rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.messagem_button p {
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.messagem_button, .cesta_frase{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.messagem_button button {
+    width: 23.75rem;
+    height: 2.6875rem;
+    border-radius: 1.875rem;
+    background: #89A48B;
+    border: none;
+    cursor: pointer;
+
+    /* -- text --*/
+
+    color: #E7E7E7;
+    text-align: center;
+    font-family: Inter;
+    font-size: 1.5625rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
