@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Header } from '../header/header';
 @Component({
   selector: 'app-login-cadastro.component',
-  imports: [],
+  imports: [Header],
   templateUrl: './login-cadastro.component.html',
   styleUrl: './login-cadastro.component.css'
 })

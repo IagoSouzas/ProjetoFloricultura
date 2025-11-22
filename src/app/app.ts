@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, Header, CommonModule],
+  imports: [RouterOutlet, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -15,7 +15,7 @@ export class App {
   protected readonly title = signal('trabalhoFloricultura');
   public showNav: boolean = true;
 
-  private readonly rotasProibidas = ['/admin', '/login','/admin/consultar','/admin/cadastrar-produto','/admin/alterar-produto','/cadastro-login'];
+  private readonly rotasProibidas = ['/admin', '/login','/admin/consultar','/admin/cadastrar-produto','/admin/alterar-produto','/cadastro-login','/carrinho'];
 
   constructor(private router: Router) {
     this.updateNavVisibility(this.router.url);

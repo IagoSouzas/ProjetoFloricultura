@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './header.css'
 })
 export class Header {
-  @Input() mostrarNavegacao: boolean = true;
+  @Input() mostrarNavegacao: boolean = false;
   imagemIcon = 'assets/imagens/iconeconta.png';
   imagemLogo = 'assets/imagens/logoimagem.svg';
 
