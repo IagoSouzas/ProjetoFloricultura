@@ -6,6 +6,7 @@ import { AdminProdutoCadastroComponent } from './components/admin-produto-cadast
 import { LoginComponent } from './components/login.component/login.component';
 import { LoginCadastroComponent } from './components/login-cadastro.component/login-cadastro.component';
 import { Carrinho } from './components/carrinho/carrinho';
+import { ItemComponent } from './components/carrinho/item.component/item.component';
 
 export const routes: Routes = [
     { path: '', component: Home },
@@ -16,5 +17,7 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'cadastro-login', component: LoginCadastroComponent },
     { path: 'carrinho', component: Carrinho },
+    { path: 'carrinho/item', component: ItemComponent },
+
 
 ];

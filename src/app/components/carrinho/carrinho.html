@@ -1,5 +1,11 @@
 <body>
     <app-header-carrinho></app-header-carrinho>
-    <app-cesta></app-cesta>
+    
+    <app-item-carrinho *ngIf="!carrinhoVazio; else cestaVaziaTemplate" [itens]="itens"></app-item-carrinho>
+    
     <app-footer-carrinho></app-footer-carrinho>
+    
+    <ng-template #cestaVaziaTemplate>
+        <app-cesta></app-cesta>
+    </ng-template>
 </body>

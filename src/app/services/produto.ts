@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs'; // Adicionado 'of' para retornar Observable de dados em cache
-import { map } from 'rxjs/operators'; // Adicionado 'map'
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 interface Produto {
   id?: number;
@@ -14,13 +14,12 @@ interface Produto {
   qtd_estoque: number;
   preco: number;
   observacao: string;
-  adicionar_imagem?: File;
+  imagem?: string; // agora é string (nome do arquivo salvo no servidor)
 }
 
-// Interface obrigatória para o retorno com paginação
 export interface PaginatedResult<T> {
   data: T[];
-  totalItems: number; // Retorna o total para que o componente calcule as páginas
+  totalItems: number;
 }
 
 @Injectable({
@@ -29,51 +28,56 @@ export interface PaginatedResult<T> {
 export class ProdutoService {
   private apiUrl = 'http://localhost:3000/produtos';
 
-  // Cache interno para armazenar todos os produtos
+  // Cache interno
   private allProducts: Produto[] = [];
   private dataFetched = false;
 
   constructor(private http: HttpClient) { }
 
-  // CORREÇÃO: Método para buscar (e paginar) produtos
+  // === PAGINAÇÃO (mantido igual) ===
   getProdutos(page: number, limit: number): Observable<PaginatedResult<Produto>> {
-
     const startIndex = (page - 1) * limit;
     const endIndex = startIndex + limit;
-    // Se é a primeira vez: Busca TODOS os produtos do servidor
+
     return this.http.get<Produto[]>(this.apiUrl).pipe(
       map(products => {
-        // 1. Armazena o conjunto de dados completo
         this.allProducts = products;
         this.dataFetched = true;
 
         const totalItems = products.length;
-
-        // 2. Faz o corte para retornar a primeira página
         const paginatedData = products.slice(startIndex, endIndex);
 
-        return {
-          data: paginatedData,
-          totalItems: totalItems
-        };
+        return { data: paginatedData, totalItems };
       })
     );
   }
 
-  // Métodos de CRUD (mantidos)
+  // === CADASTRO SEM imagem (antigo - mantém compatibilidade) ===
   cadastrarProduto(produto: Produto): Observable<Produto> {
     return this.http.post<Produto>(this.apiUrl, produto);
   }
 
+  // === CADASTRO COM imagem (NOVO) ===
+  cadastrarProdutoComImagem(formData: FormData): Observable<Produto> {
+    return this.http.post<Produto>(this.apiUrl, formData);
+  }
+
+  // === ALTERAÇÃO SEM imagem (antigo) ===
   alterarProduto(id: string, produto: Produto): Observable<Produto> {
     return this.http.put<Produto>(`${this.apiUrl}/${id}`, produto);
   }
 
+  // === ALTERAÇÃO COM imagem (NOVO) ===
+  alterarProdutoComImagem(id: string, formData: FormData): Observable<Produto> {
+    return this.http.put<Produto>(`${this.apiUrl}/${id}`, formData);
+  }
+
+  // === OUTROS MÉTODOS (sem alteração) ===
   getProdutoPorId(id: string): Observable<Produto> {
     return this.http.get<Produto>(`${this.apiUrl}/${id}`);
   }
 
-  deletarProduto(id: number): Observable<Produto>{
-    return this.http.delete<Produto>(`${this.apiUrl}/${id}`)
+  deletarProduto(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
   }
 }

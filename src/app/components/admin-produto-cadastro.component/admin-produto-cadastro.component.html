@@ -1,7 +1,10 @@
+<app-header></app-header>
+
 <form (submit)="onSubmit($event)">
     <div class="form-group">
         <label for="nome_produto">Nome do Produto:</label>
-        <input type="text" id="nome_produto" name="nome_produto" class="form-control" [(ngModel)]="produto.nome_produto">
+        <input type="text" id="nome_produto" name="nome_produto" class="form-control"
+            [(ngModel)]="produto.nome_produto">
     </div>
 
     <div class="form-group">
@@ -26,7 +29,8 @@
 
     <div class="form-group">
         <label for="condicoes_cultivo">Condições de Cultivo:</label>
-        <input type="text" id="condicoes_cultivo" name="condicoes_cultivo" class="form-control" [(ngModel)]="produto.condicoes_cultivo">
+        <input type="text" id="condicoes_cultivo" name="condicoes_cultivo" class="form-control"
+            [(ngModel)]="produto.condicoes_cultivo">
     </div>
 
     <div class="form-group">
@@ -41,7 +45,7 @@
 
     <div class="form-group">
         <label for="adicionar_imagem">Adicionar imagem:</label>
-        <input type="file" id="adicionar_imagem" name="adicionar_imagem" accept="image/*" class="form-control">
+        <input type="file" id="adicionar_imagem" accept="image/*" (change)="onFileSelected($event)">
     </div>
 
     <div class="form-group form-group-textarea">

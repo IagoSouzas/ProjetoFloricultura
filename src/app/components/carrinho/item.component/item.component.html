@@ -1,1 +1,41 @@
-<p>item.component works!</p>
+<div class="container-carrinho-items">
+    <div class="container-items">
+
+        <div class="descricao_cesta_cheia">
+            <div class="titulo_cesta_cheia">
+                <p>Sua Cesta</p>
+                <img [src]="cestaCheia" alt="Ícone de cesta de compras">
+            </div>
+            <p>
+                Para continuar comprando, navegue coleções pela busca pelo <br> arranjo perfeito.
+            </p>
+        </div>
+
+        <section *ngFor="let item of itens" class="item">
+
+            <img [src]="item.url" [alt]="item.nome">
+
+            <p class="nomeItem">{{ item.nome }}</p>
+
+            <div class="container_pricing">
+                <p class="pricing">{{ item.preco | currency:'BRL':'symbol':'1.2-2' }}</p>
+                
+                <div class="actionsButton">
+                    <span>-</span>
+                    <span>{{ item.quantidade }}</span>
+                    <span>+</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="container-subtotal">
+        <p>Cesta de compras <span>contador</span> itens</p>
+        <div class="total_itens">
+            <p>Total:</p>
+            <p>R$ 539,70</p>
+        </div>
+        <p>Finalizar Compra</p>
+        <p>Continuar Compra</p>
+    </div>
+</div>

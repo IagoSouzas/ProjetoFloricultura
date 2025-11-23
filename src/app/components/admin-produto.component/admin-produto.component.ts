@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProdutoService, PaginatedResult } from '../../services/produto';
 import { HttpClientModule } from '@angular/common/http'; // CORREÇÃO: Necessário para componentes standalone que usam serviços HTTP
+import { Header } from '../header/header';
 
 
 interface Produto {
@@ -21,7 +22,7 @@ interface TermosBusca {
 @Component({
   selector: 'app-admin-produto.component',
   // CORREÇÃO: Adicionado HttpClientModule para resolver o erro de provedor
-  imports: [CommonModule, FormsModule, HttpClientModule],
+  imports: [CommonModule, FormsModule, HttpClientModule, Header],
   templateUrl: './admin-produto.component.html',
   styleUrl: './admin-produto.component.css'
 })
