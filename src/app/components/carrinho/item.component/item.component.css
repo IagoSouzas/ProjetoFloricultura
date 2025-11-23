@@ -115,19 +115,23 @@
     line-height: normal;
 }
 
-.container-subtotal p:nth-child(3) {
+.btn-finalizar-compra {
     width: 23.75rem;
     height: 2.5625rem;
     border-radius: 1.875rem;
     background: #BDCF9F;
+    border: none;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
 }
 
-.container-subtotal p:nth-child(4) {
+.btn-continuar-comprando {
+    padding: 1rem;
     cursor: pointer;
+    background-color: transparent;
+    border: none;
 }
 
 .total_itens {

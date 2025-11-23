@@ -92,6 +92,47 @@ export class UsuarioService {
       map(usuario => usuario.itens_adicionais || [])
     );
   }
+  removerItemDoCarrinho(idProduto: string): Observable<void> {
+    const userId = this.getUserId();
+    if (!userId) {
+      return throwError(() => new Error('Usuário não logado'));
+    }
+
+    return this.getUsuarioPorId(userId).pipe(
+      map(usuario => {
+        let carrinho: CarrinhoItem[] = usuario.itens_adicionais || [];
+
+        const indiceItem = carrinho.findIndex(item => item.id_produto === idProduto);
+
+        if (indiceItem === -1) {
+          console.log('Item não encontrado no carrinho:', idProduto);
+          return usuario; // nada a fazer
+        }
+
+        // Diminui a quantidade
+        carrinho[indiceItem].quantidade -= 1;
+
+        // Se chegou a zero, remove o item completamente
+        if (carrinho[indiceItem].quantidade <= 0) {
+          console.log('Quantidade zerada → removendo item do carrinho:', idProduto);
+          carrinho.splice(indiceItem, 1);
+        } else {
+          console.log(`Quantidade atualizada para ${carrinho[indiceItem].quantidade}`);
+        }
+
+        usuario.itens_adicionais = carrinho;
+        return usuario;
+      }),
+      tap(usuarioAtualizado => {
+        this.updateUsuario(usuarioAtualizado).subscribe({
+          next: () => console.log('Carrinho atualizado com sucesso (item diminuído/removido)'),
+          error: (err) => console.error('Erro ao salvar carrinho:', err)
+        });
+      }),
+      map(() => void 0),
+      catchError(this.handleHttpError)
+    );
+  }
 
   adicionarItemAoCarrinho(produto: Produto): Observable<void> {
     const userId = this.getUserId();

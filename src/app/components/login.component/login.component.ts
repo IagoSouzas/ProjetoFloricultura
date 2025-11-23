@@ -24,7 +24,7 @@ export class LoginComponent {
 
   formulario = new FormGroup({
     username: new FormControl('', [Validators.required, Validators.nullValidator]), 
-    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    password: new FormControl('', [Validators.required]),
   });
 
   onSubmit(): void {
