@@ -5,11 +5,10 @@
 
         <div class="carousel-track-viewport">
             <div class="carousel-track-flowers" #carouselTrack>
-                <div *ngFor="let card of cardsWithClones; let i = index"
-                     class="flower-card"
-                     [class.active]="i === centerIndex"> <img [src]="card.src" [alt]="card.alt">
-                    <p class="name">{{ card.name }}</p>
-                    <p class="price">{{ card.price }}</p>
+                <div *ngFor="let card of cardsWithClones; let i = index" class="flower-card "
+                    [class.active]="i === centerIndex" (click)="adicionarAoCarrinho(card)"> <img [src]="card.imagem">
+                    <p class="name">{{ card.nome_produto }}</p>
+                    <p class="price">{{ card.preco | currency:'BRL':'symbol':'1.2-2' }}</p>
                 </div>
 
             </div>

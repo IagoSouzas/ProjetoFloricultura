@@ -3,21 +3,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProdutoService } from '../../services/produto';
 import { FormsModule } from '@angular/forms';
 import { Header } from '../header/header';
+import {
+  Produto
 
-interface Produto {
-  id?: number;
-  nome_produto: string;
-  categoria: string;
-  especie: string;
-  descricao: string;
-  cor: string;
-  condicoes_cultivo: string;
-  qtd_estoque: number;
-  preco: number;
-  observacao: string;
-  imagem?: string; // nome/path da imagem salva (ex: "123456-orquidea.jpg")
-}
-
+} from '../../services/interfaces/produto';
 @Component({
   selector: 'app-admin-produto-cadastro.component',
   imports: [FormsModule, Header],
@@ -33,6 +22,7 @@ export class AdminProdutoCadastroComponent implements OnInit {
   public nomeImagemParaSalvar: string = '';
 
   public produto: Produto = {
+    id: '',
     nome_produto: '',
     categoria: '',
     especie: '',
@@ -65,7 +55,6 @@ export class AdminProdutoCadastroComponent implements OnInit {
     this.produtoService.getProdutoPorId(id).subscribe({
       next: (data) => {
         this.produto = data;
-        // Se já tiver imagem salva, pode exibir no futuro
       },
       error: (error) => {
         console.error('Erro ao carregar produto:', error);

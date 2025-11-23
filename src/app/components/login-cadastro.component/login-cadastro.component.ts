@@ -28,7 +28,7 @@ export class LoginCadastroComponent implements OnInit {
     nome: '',
     email: '',
     senha: '',
-    role: '',
+    role: 'user',
     // Campos adicionados para o formulário
     cpf: '',
     endereco: {
@@ -71,7 +71,7 @@ export class LoginCadastroComponent implements OnInit {
 
         // Limpa o formulário e muda para a tela de login
         this.novoUsuario = {
-          nome: '', email: '', senha: '', cpf: '', role: '', itens_adicionais: [],
+          nome: '', email: '', senha: '', cpf: '', role: 'user', itens_adicionais: [],
           endereco: { cep: '', numero: null, complemento: '' }
         };
         this.router.navigate(['/login']);

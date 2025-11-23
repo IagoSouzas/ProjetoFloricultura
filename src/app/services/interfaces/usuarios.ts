@@ -1,8 +1,4 @@
-export interface ItemAdicional {
-  nomeItem: string;
-  quantidade: number;
-  dataAdicao: string;
-}
+import {CarrinhoItem} from '../interfaces/produto'
 
 // 1. Nova Interface para Endereço
 export interface Endereco {
@@ -11,16 +7,14 @@ export interface Endereco {
   complemento: string;
 }
 
-// Interface base do Usuário (se esta for a estrutura mínima para a API)
 export interface Usuario {
-  id?: number | string;
+  id?: string;                    // ← string, não number!
+  nome: string;
   email: string;
   senha: string;
-  nome: string;
-  itens_adicionais: ItemAdicional[];
-  role: string;
+  role?: 'user' | 'admin';
+  itens_adicionais: CarrinhoItem[];
 }
-
 // 2. Interface completa para uso no Formulário de Cadastro (inclui campos extras)
 export interface UsuarioCompleto extends Usuario {
   cpf: string;
@@ -28,8 +22,8 @@ export interface UsuarioCompleto extends Usuario {
 }
 
 export interface LoginResponse {
-  id: number; 
+  id: string;                     // ← string aqui também!
   nome: string;
-  role: string;
   email: string;
+  role: 'user' | 'admin';
 }

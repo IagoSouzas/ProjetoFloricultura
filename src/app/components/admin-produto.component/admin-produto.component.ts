@@ -5,19 +5,7 @@ import { Router } from '@angular/router';
 import { ProdutoService, PaginatedResult } from '../../services/produto';
 import { HttpClientModule } from '@angular/common/http'; // CORREÇÃO: Necessário para componentes standalone que usam serviços HTTP
 import { Header } from '../header/header';
-
-
-interface Produto {
-  id?: number;
-  nome_produto: string;
-  categoria: string;
-  qtd_estoque: number;
-}
-
-interface TermosBusca {
-  nome_produto?: string;
-  categoria?: string;
-}
+import { Produto } from '../../services/interfaces/produto';
 
 @Component({
   selector: 'app-admin-produto.component',
@@ -58,12 +46,7 @@ export class AdminProdutoComponent implements OnInit {
     this.produtoService.getProdutos(this.paginaAtual, this.limitePorPagina)
       .subscribe({
         next: (result: PaginatedResult<Produto>) => {
-          this.items = result.data.map(p => ({
-            id: p.id,
-            nome_produto: p.nome_produto,
-            categoria: p.categoria,
-            qtd_estoque: p.qtd_estoque
-          }));
+          this.items = result.data;
           this.totalItens = result.totalItems;
         },
         error: (err) => {
@@ -87,7 +70,7 @@ export class AdminProdutoComponent implements OnInit {
     this.router.navigate(['admin/alterar-produto', item.id]);
   }
 
-  public deletarProduto(id: number | undefined): void {
+  public deletarProduto(id: string | undefined): void {
     if (!id) {
       alert("Erro: ID do produto inválido ou não fornecido para exclusão.");
       console.error("Tentativa de deletar produto com ID inválido/nulo.");

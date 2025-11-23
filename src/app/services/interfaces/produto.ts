@@ -1,5 +1,5 @@
 export interface Produto {
-  id?: number;
+  id: string;
   nome_produto: string;
   categoria: string;
   especie: string;
@@ -10,4 +10,12 @@ export interface Produto {
   preco: number;
   observacao: string;
   imagem?: string; // agora é string (nome do arquivo salvo no servidor)
+}
+
+export interface CarrinhoItem {
+  id_produto: string; 
+  nome_produto: string;
+  preco_unitario: number;
+  quantidade: number;
+  imagem?: string;
 }
