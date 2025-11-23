@@ -17,11 +17,19 @@ export interface Usuario {
   email: string;
   senha: string;
   nome: string;
-  itens_adicionais: ItemAdicional[]; 
+  itens_adicionais: ItemAdicional[];
+  role: string;
 }
 
 // 2. Interface completa para uso no Formulário de Cadastro (inclui campos extras)
 export interface UsuarioCompleto extends Usuario {
   cpf: string;
   endereco: Endereco;
+}
+
+export interface LoginResponse {
+  id: number; 
+  nome: string;
+  role: string;
+  email: string;
 }

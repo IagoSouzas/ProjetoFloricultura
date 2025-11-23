@@ -28,6 +28,7 @@ export class LoginCadastroComponent implements OnInit {
     nome: '',
     email: '',
     senha: '',
+    role: '',
     // Campos adicionados para o formulário
     cpf: '',
     endereco: {
@@ -70,7 +71,7 @@ export class LoginCadastroComponent implements OnInit {
 
         // Limpa o formulário e muda para a tela de login
         this.novoUsuario = {
-          nome: '', email: '', senha: '', cpf: '', itens_adicionais: [],
+          nome: '', email: '', senha: '', cpf: '', role: '', itens_adicionais: [],
           endereco: { cep: '', numero: null, complemento: '' }
         };
         this.router.navigate(['/login']);
@@ -83,21 +84,4 @@ export class LoginCadastroComponent implements OnInit {
     });
   }
 
-  // onSubmitLogin(): void {
-  //   this.statusMensagem = `Tentando login com ${this.loginDados.email}...`;
-  //   this.isSucesso = null;
-  //   // Lógica de autenticação viria aqui, usando this.loginDados.email e this.loginDados.senha
-  //   this.usuarioService.login(this.loginDados.email, this.loginDados.senha).subscribe({
-  //     next: (usuarioLogado) => {
-  //       this.isSucesso = true;
-  //       this.statusMensagem = `Login de ${usuarioLogado.nome} realizado com sucesso!`;
-  //       this.router.navigate(['/home']); // Redireciona
-  //     },
-  //     error: (error) => {
-  //       this.isSucesso = false;
-  //       this.statusMensagem = 'Erro de login: E-mail ou senha incorretos.';
-  //       console.error('Erro de Login:', error);
-  //     }
-  //   });
-  // }
 }

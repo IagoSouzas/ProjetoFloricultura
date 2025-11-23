@@ -1,6 +1,6 @@
 <app-header></app-header>
 
-<form [formGroup]="formulario" (ngSubmit)="onLogin()"> 
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()"> 
     <div class="login-container">
 
         <p id="login-titulo">Login</p>
@@ -23,6 +23,7 @@
             </div>
         </div> 
         
+        <!-- Exibe o erro de login se existir -->
         <div *ngIf="loginError" class="error-message">
              {{ loginError }}
         </div>
@@ -42,8 +43,7 @@
                 </span> 
             </button>
 
-            <p id="cadastre-se">É novo por aqui? <a [routerLink]="['/cadastro-login']" >Cadastre-se agora!</a></p>
+            <p id="cadastre-se">É novo por aqui? <a [routerLink]="['/cadastro-login']" >Cadastre-se</a></p>
         </div>
-
     </div>
 </form>

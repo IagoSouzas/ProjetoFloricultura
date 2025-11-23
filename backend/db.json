@@ -28,11 +28,12 @@
   ],
   "usuarios": [
     {
-      "id": "bc66",
+      "id": "a4fd",
       "nome": " Iago Dos Santos Souza",
       "email": "iagosouza386@gmail.com",
-      "senha": "123",
+      "senha": "123456",
       "cpf": "52841054861",
+      "role": "admin",
       "endereco": {
         "cep": "04484010",
         "numero": 19,
@@ -41,17 +42,55 @@
       "itens_adicionais": []
     },
     {
-      "id": "a4fd",
+      "id": "e99d",
       "nome": " Iago Dos Santos Souza",
-      "email": "iagosouza386@gmail.com",
-      "senha": "12345",
+      "email": "iagosantossouza80@gmail.com",
+      "senha": "1234567",
+      "role": "",
       "cpf": "52841054861",
       "endereco": {
-        "cep": "04484010",
-        "numero": 19,
-        "complemento": "casa 2"
+        "cep": "",
+        "numero": null,
+        "complemento": ""
       },
       "itens_adicionais": []
+    }
+  ],
+  "login": [
+    {
+      "id": "2567",
+      "email": "iagosouza386@gmail.com",
+      "senha": "123456"
+    },
+    {
+      "id": "9a80",
+      "email": "iagosouza386@gmail.com",
+      "senha": "123456"
+    },
+    {
+      "id": "1a6b",
+      "email": "iagosouza386@gmail.com",
+      "senha": "123456"
+    },
+    {
+      "id": "b3df",
+      "email": "iagosouza386@gmail.com",
+      "senha": "123456"
+    },
+    {
+      "id": "5074",
+      "email": "iagosouza386@gmail.com",
+      "senha": "123456"
+    },
+    {
+      "id": "efb5",
+      "email": "iagosouza386@gmail.com",
+      "senha": "123456"
+    },
+    {
+      "id": "b135",
+      "email": "asdas",
+      "senha": "asdasd"
     }
   ]
 }
