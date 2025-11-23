@@ -2,20 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Produto } from './interfaces/produto';
 
-interface Produto {
-  id?: number;
-  nome_produto: string;
-  categoria: string;
-  especie: string;
-  descricao: string;
-  cor: string;
-  condicoes_cultivo: string;
-  qtd_estoque: number;
-  preco: number;
-  observacao: string;
-  imagem?: string; // agora é string (nome do arquivo salvo no servidor)
-}
 
 export interface PaginatedResult<T> {
   data: T[];

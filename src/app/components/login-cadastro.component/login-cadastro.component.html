@@ -6,23 +6,25 @@
         <p id="cadastro-titulo">Meu Cadastro</p>
         <div class="divisor"></div>
         <form class="form-cadastro">
-            <p>*Nome completo: <br><input type="text" name="nome"></p>
-            <p>*CPF: <br><input type="text" name="cpf"></p>
-            <p>*E-mail: <br><input type="email" name="email"></p>
-            <p>*Senha: <br> <input type="password" name="senha"></p>
+            <!-- Binding de dados: [(ngModel)]="novoUsuario.<propriedade>" -->
+            <p>*Nome completo: <br><input type="text" name="nome" [(ngModel)]="novoUsuario.nome"></p>
+            <p>*CPF: <br><input type="text" name="cpf" [(ngModel)]="novoUsuario.cpf"></p>
+            <p>*E-mail: <br><input type="email" name="email" [(ngModel)]="novoUsuario.email"></p>
+            <p>*Senha: <br> <input type="password" name="senha" [(ngModel)]="novoUsuario.senha"></p>
         </form>
 
         <p id="endereco-titulo">Meu Endereço</p>
         <div class="divisor"></div>
         <form class="form-endereco">
-            <p id="cep-input">*CEP: <a href="#">Não sei meu CEP</a> <br> <input type="text" name="cep"></p>
-            <p id="numero-input">*Número: <br><input type="number" name="numero"></p>
-            <p id="complemento-input">*Complemento: <br><input type="text" name="complemento"></p>
+            <!-- Binding de dados: [(ngModel)]="novoUsuario.<propriedade>" -->
+            <p id="cep-input">*CEP: <a href="#">Não sei meu CEP</a> <br> <input type="text" name="cep" [(ngModel)]="novoUsuario.endereco.cep"></p>
+            <p id="numero-input">*Número: <br><input type="number" name="numero" [(ngModel)]="novoUsuario.endereco.numero"></p>
+            <p id="complemento-input">*Complemento: <br><input type="text" name="complemento" [(ngModel)]="novoUsuario.endereco.complemento"></p>
         </form>
 
         <button id="botao-finalizar" 
                 type="button" 
-                (click)="onFinalizarCadastro()">
+                (click)="onSubmitCadastro()">
             Finalizar cadastro
         </button>
     </div>
